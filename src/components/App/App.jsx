@@ -14,6 +14,13 @@ function addToDo(  ) {
 
 }
 
+function deleteToDo( todo ) {
+  console.log('In the delete function')
+  const removedItem = [...toDos]
+  removedItem.pop()
+  setToDos(removedItem)
+}
+
   return (
     <div>
       <h1>Your TO DO List</h1>
@@ -33,14 +40,14 @@ function addToDo(  ) {
         </thead>
         <tbody>
           <tr>
-            <td>Fuck Amazons mom</td>
+            <td>Walk the dog</td>
             <td>No</td>
             <td>
-              <button>Remove</button>
+              <button onClick={ deleteToDo }>Remove</button>
             </td>
           </tr>
           
-          <TableUpdate toDos={ toDos } />
+          {/* <TableUpdate toDos={ toDos } setToDos= { setToDos } newToDo={ newToDo } deleteToDo={ deleteToDo }/> */}
           
         </tbody>
       </table>
