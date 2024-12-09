@@ -17,7 +17,7 @@ function addToDo(  ) {
   return (
     <div>
       <h1>Your TO DO List</h1>
-      <input type='text' placeholder='Add To Do' size={40} onChange={(event)=>{setNewToDo(event.target.value)}}/>
+      <input type='text' placeholder='Add To Do' size={40} onChange={()=>{setNewToDo(event.target.value)}}/>
       <br />
       <p>{newToDo}</p>
       <br />
@@ -39,24 +39,11 @@ function addToDo(  ) {
               <button>Remove</button>
             </td>
           </tr>
-
-          </tbody>
-      </table>
-          <ul>
-          { toDos.map( (toDos, index) => (
-        <li key={index}> 
-        { toDos } 
-        <button>❌</button> 
-        <button>Remove</button>
-        </li>
-      ))
-      
-      }
-          </ul>
-
-          {/* <TableUpdate toDos={ toDos } /> */}
           
-        
+          <TableUpdate toDos={ toDos } />
+          
+        </tbody>
+      </table>
 
     </div>
   );
