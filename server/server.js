@@ -8,9 +8,19 @@ app.use(express.json()); // needed for axios requests
 app.use(express.static('build'));
 
 /** ---------- EXPRESS ROUTES ---------- **/
-app.use('/api/todo', todoRouter);
+app.use('/api/todos', todoRouter);
 
 /** ---------- START SERVER ---------- **/
 app.listen(PORT,  () => {
     console.log('Listening on port: ', PORT);
 });
+
+app.get('/api/todos', (req, res) =>{
+    console.log('In todos GET')
+    res.send(todoRouter)
+})
+
+app.post('/api/todos', (req, res) =>{
+    todoRouter.push(req.body)
+    res.sendStatus(201)
+})
